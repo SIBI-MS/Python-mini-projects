@@ -1,5 +1,5 @@
 class item():
-    payrate=10
+    payrate=11
     def __init__(self,name: str,price: float,quantity):
         # to validate the attributes
         assert price >=0, f"The sended element of {price} not greater than zero"
