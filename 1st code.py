@@ -1,3 +1,4 @@
+import csv
 class item():
     payrate=11
     all=[]
@@ -16,7 +17,18 @@ class item():
     def __repr__(self):
         return f"item('{self.name}')"
     @classmethod
-    def csninstabtiate():
+    def csninstabtiate(cls):
+        with open('data.csv','r') as f:
+            reader=csv.DictReader(f)
+            items=list(reader)
+        for item1 in items:
+            item(
+                name=item1.get('name'),
+                price=int(item1.get('price')),
+                quantity=int(item1.get('quantity')),
+            )
 
 
 
+item.csninstabtiate()
+print(item.all)
