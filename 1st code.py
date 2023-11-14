@@ -1,34 +1,16 @@
-import csv
-class item():
-    payrate=11
-    all=[]
-    def __init__(self,name: str,price: float,quantity):
-        # to validate the attributes
-        assert price >=0, f"The sended element of {price} not greater than zero"
-        assert quantity >= 0, f"The sended element of {quantity} not greater than zero"
+class student:
+    def __init__(self,name,roll_no):
         self.name=name
-        self.price=price
-        self.quantity=quantity=quantity
-        item.all.append(self)
-    def product(self):
-        return self.price*self.quantity
-    def discount(self):
-        self.price=self.price*self.payrate
-    def __repr__(self):
-        return f"item('{self.name}')"
-    @classmethod
-    def csninstabtiate(cls):
-        with open('data.csv','r') as f:
-            reader=csv.DictReader(f)
-            items=list(reader)
-        for item1 in items:
-            item(
-                name=item1.get('name'),
-                price=int(item1.get('price')),
-                quantity=int(item1.get('quantity')),
-            )
+        self.roll_no=roll_no
+        self.lap=self.laptop()
+    def show(self):
+        print(self.name,self.roll_no)
+    class laptop:
+        def __init__(self):
+            self.brand="HP"
+            self.ram=8
 
+s1=student('sibi',2)
+s2=student('setha',3)
 
-
-item.csninstabtiate()
-print(item.all)
+s1.show()
